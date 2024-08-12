@@ -92,7 +92,7 @@ The database for the platform is built using MongoDB, a NoSQL database that prov
 
 Below is a high-level diagram that illustrates the architecture of the StudyNotion EdTech platform:
 
-<img src="./image.png">
+<!-- <img src="./image.png"> -->
 
 ## API Design
 
