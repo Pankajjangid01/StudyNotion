@@ -10,7 +10,7 @@ const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"];
 export default function EditProfile() {
   const { user } = useSelector((state) => state.profile);
   const { token } = useSelector((state) => state.auth);
-  console.log("printing token in Edit Profile--->>", token);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

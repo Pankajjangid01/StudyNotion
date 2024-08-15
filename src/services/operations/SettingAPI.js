@@ -7,10 +7,11 @@ import { settingsEndpoints } from "../apis";
 const { UPDATE_PROFILE_API } = settingsEndpoints;
 
 export function updateProfile(token, formData) {
-  console.log("printing token in update Profile--->>", token);
+  console.log("inside update profile---->>>");
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     try {
+      console.log("Updating User profile----->>>>>");
       const response = await apiConnector("PUT", UPDATE_PROFILE_API, formData, {
         Authorization: `Bearer ${token}`,
       });

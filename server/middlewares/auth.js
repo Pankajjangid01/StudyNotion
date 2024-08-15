@@ -8,12 +8,13 @@ exports.auth = async (req, res, next) => {
     const token =
       req.cookies.token ||
       req.body.token ||
-      req.header("Authorisation").replace("Bearer ", "");
+      (req.header("Authorization") &&
+        req.header("Authorization").replace("Bearer ", ""));
 
     if (!token) {
       return res.status(401).json({
         success: false,
-        message: "TOken is missing",
+        message: "Token is missing",
       });
     }
 
@@ -24,11 +25,12 @@ exports.auth = async (req, res, next) => {
     } catch (err) {
       return res.status(401).json({
         success: false,
-        message: "token is invalid",
+        message: "Token is invalid",
       });
     }
     next();
   } catch (error) {
+    console.log("printing error in update profile--->>", error);
     return res.status(401).json({
       success: false,
       message: "Something went wrong while validating the token",

@@ -15,7 +15,7 @@ import MyProfile from "./components/core/Dashboard/MyProfile";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
-import Settings from "./components/core/Dashboard/Settings"
+import Settings from "./components/core/Dashboard/Settings";
 function App() {
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
