@@ -5,6 +5,10 @@ const {
   createCourse,
   getAllCourses,
   getCourseDetails,
+  getFullCourseDetails,
+  editCourse,
+  getInstructorCourses,
+  deleteCourse,
 } = require("../controllers/Course");
 
 const {
@@ -49,6 +53,11 @@ router.post("/deleteSubSection", auth, isInstructor, deleteSubSection);
 router.post("/addSubSection", auth, isInstructor, createSubSection);
 router.get("/getAllCourses", getAllCourses);
 router.post("/getCourseDetails", getCourseDetails);
+router.post("/getFullCourseDetails", auth, getFullCourseDetails)
+router.post("/editCourse", auth, isInstructor, editCourse)
+router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses)
+router.delete("/deleteCourse", deleteCourse)
+
 
 //Category routes (Only by Admin)
 router.post("/createCategory", auth, isAdmin, createCategory);
