@@ -1,4 +1,4 @@
-const BASE_URL = `https://study-notion-ashen-eight.vercel.app`;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // AUTH ENDPOINTS
 export const endpoints = {
