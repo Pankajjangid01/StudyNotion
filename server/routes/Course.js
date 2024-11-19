@@ -42,6 +42,7 @@ const {
   isAdmin,
 } = require("../middlewares/auth");
 
+const { updateCourseProgress } = require("../controllers/courseProgress");
 //                                      Course routes
 
 router.post("/createCourse", auth, isInstructor, createCourse);
@@ -57,6 +58,7 @@ router.post("/getFullCourseDetails", auth, getFullCourseDetails);
 router.post("/editCourse", auth, isInstructor, editCourse);
 router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses);
 router.delete("/deleteCourse", deleteCourse);
+router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 
 //Category routes (Only by Admin)
 router.post("/createCategory", auth, isAdmin, createCategory);
