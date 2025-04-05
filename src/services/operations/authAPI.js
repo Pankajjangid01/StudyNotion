@@ -16,7 +16,6 @@ const {
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", SENDOTP_API, {
@@ -38,7 +37,6 @@ export function sendOtp(email, navigate) {
       toast.error("Could Not Send OTP");
     }
     dispatch(setLoading(false));
-    toast.dismiss(toastId);
   };
 }
 
@@ -53,7 +51,6 @@ export function signUp(
   navigate
 ) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
@@ -79,13 +76,11 @@ export function signUp(
       navigate("/signup");
     }
     dispatch(setLoading(false));
-    toast.dismiss(toastId);
   };
 }
 
 export function login(email, password, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", LOGIN_API, {
@@ -113,13 +108,11 @@ export function login(email, password, navigate) {
       toast.error("Login Failed");
     }
     dispatch(setLoading(false));
-    toast.dismiss(toastId);
   };
 }
 
 export function getPasswordResetToken(email, setEmailSent) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", RESETPASSTOKEN_API, {
@@ -138,14 +131,12 @@ export function getPasswordResetToken(email, setEmailSent) {
       console.log("RESETPASSTOKEN ERROR............", error);
       toast.error("Failed To Send Reset Email");
     }
-    toast.dismiss(toastId);
     dispatch(setLoading(false));
   };
 }
 
 export function resetPassword(password, confirmPassword, token, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", RESETPASSWORD_API, {
@@ -166,7 +157,6 @@ export function resetPassword(password, confirmPassword, token, navigate) {
       console.log("RESETPASSWORD ERROR............", error);
       toast.error("Failed To Reset Password");
     }
-    toast.dismiss(toastId);
     dispatch(setLoading(false));
   };
 }
